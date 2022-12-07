@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RuleRow from './RuleRow';
 import './ScoreTable.css';
 import { ones, twos, threes, fours, fives, sixes, threeOfKind, fourOfKind, fullHouse, smallStraight, largeStraight, yahtzee, chance } from './Rules';
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 
 class ScoreTable extends Component {
