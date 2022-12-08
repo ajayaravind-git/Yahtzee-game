@@ -12,13 +12,15 @@ class Die extends Component {
   handleToggleClick() {
     this.props.handleClick(this.props.idx)
 
+
   }
   render() {
     let diceArray = ['one', 'two', 'three', 'four', 'five', 'six']
-    { this.props.val }
+
     let indexArray = diceArray[this.props.val - 1]
+    let isRolling = this.props.isRolling ? "Die-rolling" : "";
     let dieLocked = this.props.locked ? "Die-locked" : "";
-    let classes = `${dieLocked} Die fas fa-5x fa-dice-${indexArray}`
+    let classes = `${isRolling} ${dieLocked} Die fas fa-5x fa-dice-${indexArray} `
 
     return (
 
