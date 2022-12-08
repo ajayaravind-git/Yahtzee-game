@@ -89,13 +89,17 @@ class Game extends Component {
                 disabled={this.state.locked.every(x => x) || this.state.rollsLeft === 0 || this.state.isRolling === true}
                 onClick={this.roll}
               >
-                {this.state.rollsLeft} Rerolls Left
+                {this.state.rollsLeft === 3 ? "" : this.state.rollsLeft} {this.state.rollsLeft === 1 ? "Roll left" : this.state.rollsLeft === 3 ? "Starting round" : 'Rolls left'}
               </button>
             </div>
           </section>
         </header>
-        <ScoreTable doScore={this.doScore} scores={this.state.scores} />
+
+        <ScoreTable doScore={this.doScore} scores={this.state.scores} /><hr></hr>
+
+
       </div>
+
     );
   }
 }

@@ -6,6 +6,15 @@ import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 
 class ScoreTable extends Component {
+  getScore() {
+    let totalScore = 0;
+    for (let key in this.props.scores) {
+      if (this.props.scores[key] !== undefined) {
+        totalScore += this.props.scores[key];
+      }
+    }
+    return totalScore
+  }
 
   render() {
     const { scores, doScore } = this.props;
@@ -39,6 +48,7 @@ class ScoreTable extends Component {
             </tbody>
           </table>
         </section>
+        <h2>TOTAL SCORE: {this.getScore()}</h2>
       </div>
     )
   }
