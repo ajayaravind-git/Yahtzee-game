@@ -18,7 +18,7 @@ class Die extends Component {
     let diceArray = ['one', 'two', 'three', 'four', 'five', 'six']
 
     let indexArray = diceArray[this.props.val - 1]
-    let isRolling = this.props.isRolling ? "Die-rolling" : "";
+    let isRolling = this.props.isRolling && !this.props.locked ? "Die-rolling" : "";
     let dieLocked = this.props.locked ? "Die-locked" : "";
     let classes = `${isRolling} ${dieLocked} Die fas fa-5x fa-dice-${indexArray} `
 

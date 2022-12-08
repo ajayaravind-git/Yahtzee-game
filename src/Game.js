@@ -10,7 +10,7 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dice: Array.from({ length: NUM_DICE }),
+      dice: Array.from({ length: NUM_DICE }).map(d => 1),
       locked: Array(NUM_DICE).fill(false),
       rollsLeft: NUM_ROLLS,
       isRolling: false,
@@ -37,7 +37,7 @@ class Game extends Component {
 
   roll(evt) {
     // roll dice whose indexes are in reroll
-    setTimeout(() => this.setState({ isRolling: false }), 2000)
+    setTimeout(() => this.setState({ isRolling: false }), 1000)
     this.setState(st => ({
       dice: st.dice.map((d, i) =>
         st.locked[i] ? d : Math.ceil(Math.random() * 6)
@@ -86,7 +86,7 @@ class Game extends Component {
             <div className='Game-button-wrapper'>
               <button
                 className='Game-reroll'
-                disabled={this.state.locked.every(x => x) || this.state.rollsLeft === 0}
+                disabled={this.state.locked.every(x => x) || this.state.rollsLeft === 0 || this.state.isRolling === true}
                 onClick={this.roll}
               >
                 {this.state.rollsLeft} Rerolls Left
