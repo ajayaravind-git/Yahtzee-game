@@ -14,14 +14,17 @@ class Die extends Component {
 
   }
   render() {
+    let diceArray = ['one', 'two', 'three', 'four', 'five', 'six']
+    { this.props.val }
+    let indexArray = diceArray[this.props.val - 1]
+    let dieLocked = this.props.locked ? "Die-locked" : "";
+    let classes = `${dieLocked} Die fas fa-5x fa-dice-${indexArray}`
+
     return (
-      <button
-        className={"Die"}
-        style={{ backgroundColor: this.props.locked ? "grey" : "black" }}
-        onClick={this.handleToggleClick}
-      >
-        {this.props.val}
-      </button>
+
+      <i className={classes} onClick={this.handleToggleClick} disabled={this.props.disabled} />
+
+
     );
   }
 }
