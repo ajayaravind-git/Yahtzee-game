@@ -10,7 +10,7 @@ class Die extends Component {
   }
 
   handleToggleClick() {
-    this.props.handleClick(this.props.idx)
+    !this.props.isRolling && this.props.handleClick(this.props.idx)
 
 
   }
