@@ -1,4 +1,4 @@
-#Yahtzee
+# Yahtzee
 **The popular game of Yahtzee made with react class based components**
 
 
